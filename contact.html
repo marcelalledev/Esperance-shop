@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espérance Shop - Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--noir);
+        }
+        
+        .info-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+        
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--orange);
+            width: 30px;
+        }
+        
+        .info-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--noir);
+        }
+        
+        .info-item p {
+            color: var(--gris);
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--noir);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--noir);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--orange);
+        }
+        
+        .map-container {
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-left">
+                <span><i class="fas fa-map-marker-alt"></i> Livraison partout au Bénin</span>
+                <span><i class="fas fa-money-bill-wave"></i> Paiement à la livraison</span>
+                <span><i class="fas fa-truck"></i> Livraison gratuite dès 50 000 FCFA</span>
+            </div>
+            <div class="top-right" id="topRight">
+                <a href="contact.html"><i class="fas fa-headset"></i> Aide</a>
+                <a href="connexion.html"><i class="fas fa-user"></i> Connexion</a>
+                <a href="inscription.html"><i class="fas fa-user-plus"></i> Inscription</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER PRINCIPAL -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Espérance<span>Shop</span></h1>
+                <span class="slogan"><em>L'élégance à portée de main</em></span>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="panier.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="user-menu" id="userMenu">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Mon compte</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION PRINCIPALE -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-left">
+                <div class="categories-dropdown">
+                    <button class="dropdown-btn"><i class="fas fa-bars"></i> Toutes les catégories</button>
+                    <div class="dropdown-content">
+                        <a href="produits.html?categorie=telephones"><i class="fas fa-mobile-alt"></i> Téléphones & Tablettes</a>
+                        <a href="produits.html?categorie=electronique"><i class="fas fa-headphones"></i> Électronique</a>
+                        <a href="produits.html?categorie=informatique"><i class="fas fa-laptop"></i> Informatique</a>
+                        <a href="produits.html?categorie=mode"><i class="fas fa-tshirt"></i> Mode & Accessoires</a>
+                        <a href="produits.html?categorie=maison"><i class="fas fa-home"></i> Maison & Cuisine</a>
+                        <a href="produits.html?categorie=beaute"><i class="fas fa-heart"></i> Beauté & Santé</a>
+                        <a href="produits.html?categorie=sports"><i class="fas fa-bicycle"></i> Sports & Loisirs</a>
+                        <a href="produits.html?categorie=jouets"><i class="fas fa-gamepad"></i> Jouets & Jeux</a>
+                        <a href="produits.html?categorie=auto"><i class="fas fa-car"></i> Auto & Moto</a>
+                        <a href="produits.html?categorie=bijoux"><i class="fas fa-gem"></i> Montres & Bijoux</a>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="produits.html">Boutique</a>
+                    <a href="promotions.html">Promos</a>
+                    <a href="nouveautes.html">Nouveautés</a>
+                    <a href="contact.html" class="active">Contact</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="commandes.html"><i class="fas fa-truck"></i> Suivi commande</a>
+                <a href="favoris.html"><i class="fas fa-heart"></i> Favoris</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Accueil</a> > <span>Contact</span>
+        </div>
+        
+        <div class="contact-container">
+            <!-- Informations de contact -->
+            <div class="contact-info">
+                <h3>Nos coordonnées</h3>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Adresse</h4>
+                        <p>Agence principale: Abomey-Calavi<br>
+                        Agence Dassa-Zoume<br>
+                        Agence Parakou</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>+229 01 91 27 19 91 (Standard)<br>
+                        +229 01 47 67 43 78 (WhatsApp)</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>contact@esperanceshop.bj<br>
+                        commandes@esperanceshop.bj<br>
+                        support@esperanceshop.bj</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Horaires d'ouverture</h4>
+                        <p>Lundi - Vendredi: 8h30 - 19h00<br>
+                        Samedi: 9h00 - 18h00<br>
+                        Dimanche: Fermé</p>
+                    </div>
+                </div>
+                
+                <div class="social-icons" style="justify-content: flex-start; margin-top: 20px;">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            
+            <!-- Formulaire de contact -->
+            <div class="contact-form">
+                <h3>Envoyez-nous un message</h3>
+                
+                <form onsubmit="return envoyerMessage(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom complet</label>
+                            <input type="text" id="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telephone">Téléphone</label>
+                            <input type="tel" id="telephone" placeholder="40 XX XX XX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sujet">Sujet</label>
+                            <select id="sujet" required>
+                                <option value="">Choisir un sujet</option>
+                                <option value="commande">Question sur une commande</option>
+                                <option value="livraison">Livraison</option>
+                                <option value="produit">Information produit</option>
+                                <option value="reclamation">Réclamation</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Carte Google Maps (corrigée) -->
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.9173656502!2d2.149642519337834!3d6.367232647909782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023541c9e9b5b9b%3A0xb7f8c9e9e9e9e9e9!2sCotonou%2C%20B%C3%A9nin!5e0!3m2!1sfr!2sfr!4v1710000000000!5m2!1sfr!2sfr" 
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Espérance Shop</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Cotonou, Bénin</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +229 01 91 27 19 91</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +229 01 47 67 43 78</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contact@esperanceshop.bj</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp: +229 01 47 67 43 78</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="a-propos.html">À propos de nous</a></li>
+                        <li><a href="contact.html">Contactez-nous</a></li>
+                        <li><a href="livraison.html">Livraison et retours</a></li>
+                        <li><a href="conditions.html">Conditions générales</a></li>
+                        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Mon compte</h4>
+                    <ul>
+                        <li><a href="connexion.html">Se connecter</a></li>
+                        <li><a href="inscription.html">Créer un compte</a></li>
+                        <li><a href="commandes.html">Mes commandes</a></li>
+                        <li><a href="favoris.html">Mes favoris</a></li>
+                        <li><a href="profil.html">Mon profil</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Paiement</h4>
+                    <div class="payment-icons">
+                        <i class="fas fa-mobile-alt" title="Mobile Money MTN"></i>
+                        <i class="fas fa-mobile-alt" title="Mobile Money Moov"></i>
+                        <i class="fas fa-money-bill-wave" title="Paiement à la livraison"></i>
+                    </div>
+                    <h4>Suivez-nous</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Espérance Shop - Tous droits réservés</p>
+                <p><i class="fas fa-map-marker-alt"></i> Agence principale: Cotonou, Bénin | Abomey-Calavi | Parakou | Dassa-zoume</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espérance Shop - Détail produit</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .product-gallery {
+            position: relative;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail.active {
+            border-color: var(--orange);
+        }
+        
+        .product-info h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--noir);
+        }
+        
+        .product-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            color: #666;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .product-brand {
+            background-color: var(--gris-clair);
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: var(--noir);
+        }
+        
+        .product-price-box {
+            background-color: var(--gris-clair);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .current-price-big {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--orange);
+        }
+        
+        .old-price-big {
+            font-size: 1.3rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 15px;
+        }
+        
+        .discount-badge {
+            background-color: var(--rouge);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+        
+        .product-stock {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+        }
+        
+        .product-stock i {
+            margin-right: 10px;
+        }
+        
+        .text-success {
+            color: var(--vert);
+        }
+        
+        .text-danger {
+            color: var(--rouge);
+        }
+        
+        .product-variations {
+            margin: 20px 0;
+        }
+        
+        .variation-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--noir);
+        }
+        
+        .variation-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .variation-option {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .variation-option:hover {
+            border-color: var(--orange);
+        }
+        
+        .variation-option.selected {
+            border-color: var(--orange);
+            background-color: var(--orange-clair);
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-controls button {
+            width: 40px;
+            height: 40px;
+            background-color: var(--gris-clair);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .quantity-controls button:hover {
+            background-color: var(--orange);
+            color: white;
+        }
+        
+        .quantity-controls span {
+            font-size: 1.2rem;
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .stock-info {
+            color: var(--gris);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .add-to-cart-btn-large {
+            flex: 2;
+            padding: 15px;
+            background-color: var(--orange);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart-btn-large:hover {
+            background-color: var(--orange-fonce);
+        }
+        
+        .buy-now-btn {
+            flex: 1;
+            padding: 15px;
+            background-color: var(--noir);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .buy-now-btn:hover {
+            background-color: #333;
+        }
+        
+        .product-delivery,
+        .product-guarantee {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: var(--gris-clair);
+            border-radius: 5px;
+        }
+        
+        .product-delivery i,
+        .product-guarantee i {
+            margin-right: 10px;
+            color: var(--orange);
+        }
+        
+        .product-specs {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .spec-item {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .spec-label {
+            font-weight: bold;
+            color: var(--gris);
+            min-width: 100px;
+        }
+        
+        .spec-value {
+            color: var(--noir);
+        }
+        
+        .product-description {
+            margin-top: 30px;
+        }
+        
+        .product-description h2 {
+            margin-bottom: 15px;
+            color: var(--noir);
+        }
+        
+        .product-description p {
+            line-height: 1.8;
+            color: var(--gris);
+        }
+        
+        .reviews-section {
+            margin-top: 40px;
+        }
+        
+        .reviews-section h2 {
+            margin-bottom: 20px;
+            color: var(--noir);
+        }
+        
+        .review-card {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        
+        .review-header {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .review-author {
+            font-weight: bold;
+            color: var(--noir);
+        }
+        
+        .review-rating {
+            color: #ffc107;
+        }
+        
+        .review-date {
+            color: var(--gris);
+            font-size: 0.9rem;
+        }
+        
+        .review-content {
+            color: var(--gris);
+        }
+        
+        @media (max-width: 768px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-image {
+                height: 300px;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top bar et header identiques -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-left">
+                <span><i class="fas fa-map-marker-alt"></i> Livraison partout au Bénin</span>
+                <span><i class="fas fa-money-bill-wave"></i> Paiement à la livraison</span>
+                <span><i class="fas fa-truck"></i> Livraison gratuite dès 50 000 FCFA</span>
+            </div>
+            <div class="top-right">
+                <a href="contact.html"><i class="fas fa-headset"></i> Aide</a>
+                <a href="connexion.html"><i class="fas fa-user"></i> Connexion</a>
+                <a href="inscription.html"><i class="fas fa-user-plus"></i> Inscription</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Espérance<span>Shop</span></h1>
+                <span class="slogan">🇧🇯 L'élégance à portée de main</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="panier.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="user-menu">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Mon compte</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-left">
+                <div class="categories-dropdown">
+                    <button class="dropdown-btn"><i class="fas fa-bars"></i> Toutes les catégories</button>
+                    <div class="dropdown-content">
+                        <a href="produits.html?categorie=telephones"><i class="fas fa-mobile-alt"></i> Téléphones & Tablettes</a>
+                        <a href="produits.html?categorie=electronique"><i class="fas fa-headphones"></i> Électronique</a>
+                        <a href="produits.html?categorie=informatique"><i class="fas fa-laptop"></i> Informatique</a>
+                        <a href="produits.html?categorie=mode"><i class="fas fa-tshirt"></i> Mode & Accessoires</a>
+                        <a href="produits.html?categorie=maison"><i class="fas fa-home"></i> Maison & Cuisine</a>
+                        <a href="produits.html?categorie=beaute"><i class="fas fa-heart"></i> Beauté & Santé</a>
+                        <a href="produits.html?categorie=sports"><i class="fas fa-bicycle"></i> Sports & Loisirs</a>
+                        <a href="produits.html?categorie=jouets"><i class="fas fa-gamepad"></i> Jouets & Jeux</a>
+                        <a href="produits.html?categorie=auto"><i class="fas fa-car"></i> Auto & Moto</a>
+                        <a href="produits.html?categorie=bijoux"><i class="fas fa-gem"></i> Montres & Bijoux</a>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="produits.html">Boutique</a>
+                    <a href="promotions.html">Promos</a>
+                    <a href="nouveautes.html">Nouveautés</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="commandes.html"><i class="fas fa-truck"></i> Suivi commande</a>
+                <a href="favoris.html"><i class="fas fa-heart"></i> Favoris</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Accueil</a> > 
+            <a href="produits.html">Produits</a> > 
+            <span id="productCategory"></span>
+        </div>
+        
+        <div id="productDetailContainer">
+            <!-- Le produit sera chargé par JS -->
+        </div>
+    </main>
+
+<footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Espérance Shop</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Cotonou, Bénin</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +229 01 91 27 19 91</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +229 01 47 67 43 78</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contact@esperanceshop.bj</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp: +229 01 47 67 43 78</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="a-propos.html">À propos de nous</a></li>
+                        <li><a href="contact.html">Contactez-nous</a></li>
+                        <li><a href="livraison.html">Livraison et retours</a></li>
+                        <li><a href="conditions.html">Conditions générales</a></li>
+                        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Mon compte</h4>
+                    <ul>
+                        <li><a href="connexion.html">Se connecter</a></li>
+                        <li><a href="inscription.html">Créer un compte</a></li>
+                        <li><a href="commandes.html">Mes commandes</a></li>
+                        <li><a href="favoris.html">Mes favoris</a></li>
+                        <li><a href="profil.html">Mon profil</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Paiement</h4>
+                    <div class="payment-icons">
+                        <i class="fas fa-mobile-alt" title="Mobile Money MTN"></i>
+                        <i class="fas fa-mobile-alt" title="Mobile Money Moov"></i>
+                        <i class="fas fa-money-bill-wave" title="Paiement à la livraison"></i>
+                    </div>
+                    <h4>Suivez-nous</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Espérance Shop - Tous droits réservés</p>
+                <p><i class="fas fa-map-marker-alt"></i> Agence principale: Cotonou, Bénin | Abomey-Calavi | Parakou | Dassa-zoume | </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

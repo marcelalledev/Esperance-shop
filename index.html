@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espérance Shop - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-left">
+                <span><i class="fas fa-map-marker-alt"></i> Livraison partout au Bénin</span>
+                <span><i class="fas fa-money-bill-wave"></i> Paiement à la livraison</span>
+                <span><i class="fas fa-truck"></i> Livraison gratuite dès 50 000 FCFA</span>
+            </div>
+            <div class="top-right" id="topRight">
+                <a href="contact.html"><i class="fas fa-headset"></i> Aide</a>
+                <a href="connexion.html"><i class="fas fa-user"></i> Connexion</a>
+                <a href="inscription.html"><i class="fas fa-user-plus"></i> Inscription</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER PRINCIPAL -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <h1>Espérance<span>Shop</span></h1>
+                <span class="slogan"><em>L'élégance à portée de main</em></span>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Rechercher un produit...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <a href="panier.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="user-menu" id="userMenu">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Mon compte</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION PRINCIPALE -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-left">
+                <div class="categories-dropdown">
+                    <button class="dropdown-btn"><i class="fas fa-bars"></i> Toutes les catégories</button>
+                    <div class="dropdown-content">
+                        <a href="produits.html?categorie=telephones"><i class="fas fa-mobile-alt"></i> Téléphones & Tablettes</a>
+                        <a href="produits.html?categorie=electronique"><i class="fas fa-headphones"></i> Électronique</a>
+                        <a href="produits.html?categorie=informatique"><i class="fas fa-laptop"></i> Informatique</a>
+                        <a href="produits.html?categorie=mode"><i class="fas fa-tshirt"></i> Mode & Accessoires</a>
+                        <a href="produits.html?categorie=maison"><i class="fas fa-home"></i> Maison & Cuisine</a>
+                        <a href="produits.html?categorie=beaute"><i class="fas fa-heart"></i> Beauté & Santé</a>
+                        <a href="produits.html?categorie=sports"><i class="fas fa-bicycle"></i> Sports & Loisirs</a>
+                        <a href="produits.html?categorie=jouets"><i class="fas fa-gamepad"></i> Jouets & Jeux</a>
+                        <a href="produits.html?categorie=auto"><i class="fas fa-car"></i> Auto & Moto</a>
+                        <a href="produits.html?categorie=bijoux"><i class="fas fa-gem"></i> Montres & Bijoux</a>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="active">Accueil</a>
+                    <a href="produits.html">Boutique</a>
+                    <a href="promotions.html">Promos</a>
+                    <a href="nouveautes.html">Nouveautés</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="commandes.html"><i class="fas fa-truck"></i> Suivi commande</a>
+                <a href="favoris.html"><i class="fas fa-heart"></i> Favoris</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SLIDER HERO -->
+    <section class="hero-slider">
+        <div class="container">
+            <div class="slider-container">
+                <div class="slider" id="slider">
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1607083206865-6c7e9b6f8b1b?w=1200&h=450&fit=crop" alt="Promotion">
+                        <div class="slide-content">
+                            <h2>Nouvelle Collection 2026</h2>
+                            <p>Découvrez les dernières tendances directement de Chine</p>
+                            <a href="produits.html" class="btn">Acheter maintenant</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&h=450&fit=crop" alt="Électronique">
+                        <div class="slide-content">
+                            <h2>High-Tech à Prix Chine</h2>
+                            <p>Jusqu'à -50% sur l'électronique</p>
+                            <a href="produits.html?categorie=electronique" class="btn">Voir les offres</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1607082349566-3e6c6e1b5b3e?w=1200&h=450&fit=crop" alt="Mode">
+                        <div class="slide-content">
+                            <h2>Mode & Accessoires</h2>
+                            <p>Livraison gratuite dès 50 000 FCFA</p>
+                            <a href="produits.html?categorie=mode" class="btn">Découvrir</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn prev" onclick="changeSlide(-1)">❮</button>
+                <button class="slider-btn next" onclick="changeSlide(1)">❯</button>
+                <div class="slider-dots" id="sliderDots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- VENTES FLASH -->
+        <div class="section-header">
+            <h2>⚡ Ventes Flash</h2>
+            <div class="flash-timer">
+                <i class="fas fa-clock"></i>
+                <span id="timer">23:59:59</span>
+            </div>
+            <a href="promotions.html" class="view-all">Voir tout <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="products-grid" id="flashProducts"></div>
+
+        <!-- CATÉGORIES POPULAIRES -->
+        <div class="section-header">
+            <h2>📦 Catégories populaires</h2>
+            <a href="produits.html" class="view-all">Toutes les catégories <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card" onclick="window.location.href='produits.html?categorie=telephones'">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200&h=200&fit=crop" alt="Téléphones">
+                <h3>Téléphones</h3>
+                <p>À partir de 75 000 FCFA</p>
+            </div>
+            <div class="category-card" onclick="window.location.href='produits.html?categorie=electronique'">
+                <img src="https://images.unsplash.com/photo-1546868871-0f9b5c4b7c3f?w=200&h=200&fit=crop" alt="Électronique">
+                <h3>Électronique</h3>
+                <p>Jusqu'à -40%</p>
+            </div>
+            <div class="category-card" onclick="window.location.href='produits.html?categorie=mode'">
+                <img src="https://images.unsplash.com/photo-1445205170230-8b3b8b3b3b3b?w=200&h=200&fit=crop" alt="Mode">
+                <h3>Mode</h3>
+                <p>Nouvelle collection</p>
+            </div>
+            <div class="category-card" onclick="window.location.href='produits.html?categorie=maison'">
+                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=200&h=200&fit=crop" alt="Maison">
+                <h3>Maison</h3>
+                <p>Équipez votre intérieur</p>
+            </div>
+            <div class="category-card" onclick="window.location.href='produits.html?categorie=beaute'">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&h=200&fit=crop" alt="Beauté">
+                <h3>Beauté</h3>
+                <p>Produits de qualité</p>
+            </div>
+            <div class="category-card" onclick="window.location.href='produits.html?categorie=sports'">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=200&h=200&fit=crop" alt="Sports">
+                <h3>Sports</h3>
+                <p>Équipement sportif</p>
+            </div>
+        </div>
+
+        <!-- BANNIERE PROMO -->
+        <div class="promo-banner">
+            <div class="promo-content">
+                <h3>🚚 Livraison gratuite</h3>
+                <p>Pour toute commande supérieure à 50 000 FCFA</p>
+            </div>
+            <a href="produits.html" class="promo-btn">J'en profite</a>
+        </div>
+
+        <!-- PRODUITS RECOMMANDÉS -->
+        <div class="section-header">
+            <h2>🔥 Recommandé pour vous</h2>
+            <a href="produits.html" class="view-all">Voir tout <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="products-grid" id="recommendedProducts"></div>
+
+        <!-- AVANTAGES -->
+        <section class="advantages">
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Livraison rapide</h3>
+                    <p>15-20 jours ouvrés depuis la Chine</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Paiement sécurisé</h3>
+                    <p>Paiement à la livraison ou mobile money</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Service client</h3>
+                    <p>Support disponible 7j/7</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-undo-alt"></i>
+                    <h3>Retours gratuits</h3>
+                    <p>Sous 7 jours</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Espérance Shop</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Cotonou, Bénin</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +229 01 91 27 19 91</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +229 01 47 67 43 78</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contact@esperanceshop.bj</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp: +229 01 47 67 43 78</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="a-propos.html">À propos de nous</a></li>
+                        <li><a href="contact.html">Contactez-nous</a></li>
+                        <li><a href="livraison.html">Livraison et retours</a></li>
+                        <li><a href="conditions.html">Conditions générales</a></li>
+                        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Mon compte</h4>
+                    <ul>
+                        <li><a href="connexion.html">Se connecter</a></li>
+                        <li><a href="inscription.html">Créer un compte</a></li>
+                        <li><a href="commandes.html">Mes commandes</a></li>
+                        <li><a href="favoris.html">Mes favoris</a></li>
+                        <li><a href="profil.html">Mon profil</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Paiement</h4>
+                    <div class="payment-icons">
+                        <i class="fas fa-mobile-alt" title="Mobile Money MTN"></i>
+                        <i class="fas fa-mobile-alt" title="Mobile Money Moov"></i>
+                        <i class="fas fa-money-bill-wave" title="Paiement à la livraison"></i>
+                    </div>
+                    <h4>Suivez-nous</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <h4>Newsletter</h4>
+                    <form class="newsletter-form" onsubmit="return inscrireNewsletter(event)">
+                        <input type="email" placeholder="Votre email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Espérance Shop - Tous droits réservés</p>
+                <p><i class="fas fa-map-marker-alt"></i> Agence principale: Cotonou, Bénin | Abomey-Calavi | Parakou | Dassa-zoume</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
